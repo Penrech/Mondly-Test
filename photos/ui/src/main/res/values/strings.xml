@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="image_cd">Image %s</string>
+    <string name="no_images">There\'s no images to display</string>
+    <string name="no_photos_cd">no photos</string>
 </resources>

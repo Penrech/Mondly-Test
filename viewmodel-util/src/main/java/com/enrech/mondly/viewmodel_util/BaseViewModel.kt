@@ -33,7 +33,7 @@ abstract class BaseViewModel<S : ScreenState, A : Action, E : Effect> : ViewMode
     private val _effect: Channel<E> = Channel()
     val effect = _effect.receiveAsFlow()
 
-    private val _refreshFlow = MutableSharedFlow<RefreshState>()
+    private val _refreshFlow = MutableSharedFlow<RefreshState>(replay = 1)
     protected val refreshFlow = _refreshFlow.asSharedFlow()
 
     init {

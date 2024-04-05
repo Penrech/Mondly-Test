@@ -11,4 +11,8 @@ object RootNavGraphs: NavGraphSpec {
     override val destinationsByRoute: Map<String, DestinationSpec<*>> = emptyMap()
 
     override val startRoute: Route = PhotosNavGraph
+
+    override val nestedNavGraphs: List<NavGraphSpec> = listOf(
+        PhotosNavGraph
+    )
 }

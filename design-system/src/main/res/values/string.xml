@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_error">Oops, Something went wrong! try again</string>
+    <string name="network_error">You are offline, re-connect and try again</string>
+    <string name="secondary_network_error">You are offline</string>
+    <string name="secondary_general_error">Oops, Something went wrong!</string>
+
+    <string name="try_again">Try again</string>
+</resources>

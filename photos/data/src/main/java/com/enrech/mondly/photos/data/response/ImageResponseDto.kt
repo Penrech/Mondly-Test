@@ -4,7 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ItemDataDto(
-    @SerialName("id") val id: String? = null,
-    @SerialName("attributes") val attributesDto: AttributesDto? = null
+data class ImageResponseDto(
+    @SerialName("item") val image: ItemDataDto? = null
 )

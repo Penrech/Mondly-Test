@@ -36,6 +36,12 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs = listOf(
+            *freeCompilerArgs.toTypedArray(),
+           "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+           "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+           "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
+        )
     }
 }
 
@@ -63,6 +69,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material2)
     implementation(libs.io.github.raamcosta.compose.destinations)
     implementation(libs.io.github.raamcosta.compose.destinations.animations)
     ksp(libs.io.github.raamcosta.compose.destinations.ksp)

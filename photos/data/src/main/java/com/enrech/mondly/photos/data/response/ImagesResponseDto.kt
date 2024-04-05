@@ -5,5 +5,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ImagesResponseDto(
-    @SerialName("dataCollection") val items: List<ItemDataDto>? = null
+    @SerialName("dataCollection") val items: List<ImageResponseDto>? = null
 )

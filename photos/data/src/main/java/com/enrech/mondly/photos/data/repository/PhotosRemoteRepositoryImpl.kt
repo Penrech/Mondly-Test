@@ -23,7 +23,7 @@ class PhotosRemoteRepositoryImpl @Inject constructor(
         onFailure = {
             val isInternetConnected = internetStateRepository.getStateFlow().value == true
             val result = when {
-                isInternetConnected || it is UnknownHostException -> NoInternetException()
+                !isInternetConnected || it is UnknownHostException -> NoInternetException()
                 else -> it
             }
             Result.failure(result)

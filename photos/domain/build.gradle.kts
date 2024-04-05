@@ -37,6 +37,9 @@ android {
 }
 
 dependencies {
+    //module
+    implementation(project(libs.module.core.domain.get().name))
+
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
