@@ -34,6 +34,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs = listOf(
+            *freeCompilerArgs.toTypedArray(),
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        )
     }
 }
 
@@ -61,4 +65,11 @@ dependencies {
 
     // Testing
     testImplementation(libs.junit)
+    testImplementation(libs.hilt.android.testing)
+    testImplementation(libs.truth)
+    testImplementation(libs.io.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.io.ktor.client.mock)
+    testImplementation(libs.org.slf4j)
+    kspTest(libs.hilt.compiler)
 }
