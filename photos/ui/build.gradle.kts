@@ -49,6 +49,7 @@ dependencies {
     //Modules
     api(project(libs.module.photos.data.get().name))
     api(project(libs.module.viewmodel.util.get().name))
+    implementation(project(libs.module.core.ui.get().name))
     implementation(project(libs.module.designSystem.get().name))
 
     //Dependency Injection
@@ -75,4 +76,8 @@ dependencies {
     androidTestImplementation(libs.hilt.android.testing)
 
     kspAndroidTest(libs.hilt.compiler)
+
+    //Tooling
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
