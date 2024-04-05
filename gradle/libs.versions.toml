@@ -135,6 +135,17 @@ io-mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "
 io-ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
 
 #Modules
+module-core-ui = { group = "com.enrech.mondly", name = ":core:ui" }
+module-core-domain = { group = "com.enrech.mondly", name = ":core:domain" }
+module-core-data = { group = "com.enrech.mondly", name = ":core:data" }
+module-designSystem = { group = "com.enrech.mondly", name = ":design_system" }
+module-main-ui = { group = "com.enrech.mondly", name = ":main:ui" }
+module-photos-ui = { group = "com.enrech.mondly", name = ":photos:ui" }
+module-photos-domain = { group = "com.enrech.mondly", name = ":photos:domain" }
+module-photos-data = { group = "com.enrech.mondly", name = ":photos:data" }
+module-sharedTypes = { group = "com.enrech.mondly", name = ":shared-types" }
+module-testing = { group = "com.enrech.mondly", name = ":testing" }
+module-viewmodel-util = { group = "com.enrech.mondly", name = ":viewmodel-util" }
 
 [plugins]
 

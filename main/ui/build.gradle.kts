@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    //Modules
+    implementation(project(libs.module.photos.ui.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)

@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    //Modules
+    api(project(libs.module.core.data.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)

@@ -37,6 +37,9 @@ android {
 }
 
 dependencies {
+    //Modules
+    api(project(libs.module.photos.domain.get().name))
+
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.enrech.mondly.core.data"
+    namespace = "com.enrech.mondly.design_system"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -31,33 +31,38 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    buildFeatures.compose = true
+    composeOptions.kotlinCompilerExtensionVersion = libs.versions.composeCompiler.get()
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
 dependencies {
-    //Modules
-    api(project(libs.module.core.domain.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
-    //Data
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.datetime)
-    implementation(libs.io.ktor.client.core)
-    implementation(libs.io.ktor.client.cio)
-    implementation(libs.io.ktor.client.content.negotiation)
-    implementation(libs.io.ktor.serialization.kotlinx.json)
-    implementation(libs.io.ktor.client.logging.jvm)
-    ksp(libs.androidx.room.compiler)
+    // UI
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.io.github.raamcosta.compose.destinations)
+    implementation(libs.io.github.raamcosta.compose.destinations.animations)
+    ksp(libs.io.github.raamcosta.compose.destinations.ksp)
+    implementation(libs.io.coil.kt.coil)
+    implementation(libs.io.coil.kt.coil.compose)
 
     // Testing
     testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.hilt.android.testing)
+
+    kspAndroidTest(libs.hilt.compiler)
 }

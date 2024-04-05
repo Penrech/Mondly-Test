@@ -55,6 +55,9 @@ android {
 dependencies {
     val composeBom = platform(libs.androidx.compose.bom)
 
+    //Modules
+    implementation(project(libs.module.main.ui.get().name))
+
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
