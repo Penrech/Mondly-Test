@@ -36,6 +36,11 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs = listOf(
+            *freeCompilerArgs.toTypedArray(),
+            "-opt-in=androidx.compose.animation.ExperimentalAnimationApi",
+            "-opt-in=com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi"
+        )
     }
 }
 

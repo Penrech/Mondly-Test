@@ -41,7 +41,7 @@ android {
 
 dependencies {
     //Module
-    implementation(project(libs.module.sharedTypes.get().name))
+    api(project(libs.module.sharedTypes.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)

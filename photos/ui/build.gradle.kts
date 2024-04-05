@@ -39,9 +39,17 @@ android {
     }
 }
 
+ksp {
+    arg("compose-destinations.mode", "navgraphs")
+    arg("compose-destinations.moduleName", project.parent?.name.toString())
+    arg("compose-destinations.codeGenPackageName", android.namespace.toString())
+}
+
 dependencies {
     //Modules
     api(project(libs.module.photos.data.get().name))
+    api(project(libs.module.viewmodel.util.get().name))
+    implementation(project(libs.module.designSystem.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)

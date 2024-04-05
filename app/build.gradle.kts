@@ -57,6 +57,7 @@ dependencies {
 
     //Modules
     implementation(project(libs.module.main.ui.get().name))
+    implementation(project(libs.module.designSystem.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)
