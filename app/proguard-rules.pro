@@ -15,7 +15,54 @@
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class * implements java.io.Serializable { *; }
+-keep class * implements android.os.Parcelable { *; }
+
+#Crashlytics
+-keepattributes SourceFile,LineNumberTable        # Keep file names and line numbers.
+-keep public class * extends java.lang.Exception
+-keepclassmembers,allowobfuscation class * {
+    @javax.inject.Inject *;
+}
+-keep public class * implements java.lang.reflect.Type
+
+# Keep annotation default values (e.g., retrofit2.http.Field.encoded).
+-keepattributes AnnotationDefault
+
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+
+# Guarded by a NoClassDefFoundError try/catch and only used when on the classpath.
+-dontwarn kotlin.Unit
+
+# With R8 full mode generic signatures are stripped for classes that are not
+# kept. Suspend functions are wrapped in continuations where the type argument
+# is used.
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
+
+# With R8 full mode generic signatures are stripped for classes that are not
+# kept. Suspend functions are wrapped in continuations where the type argument
+# is used.
+-keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation
+
+-printusage build/outputs/mapping/meta/usage.txt
+-printseeds build/outputs/mapping/meta/seeds.txt
+
+-repackageclasses
+
+-keepattributes Signature,InnerClasses
+
+-keep class org.slf4j.** { *; }
+-dontwarn org.slf4j.**
+
+-keep class java.lang.management.ManagementFactory.** { *; }
+
+-dontwarn java.lang.management.**
+

@@ -48,6 +48,7 @@ kotlinx-datetime = "0.4.1"
 uiTooling = "1.6.3"
 
 splash-screen = "1.0.1"
+jetbrainsKotlinJvm = "1.9.0"
 
 [libraries]
 
@@ -143,4 +144,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
