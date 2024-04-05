@@ -42,6 +42,15 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
+    //Data
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.io.ktor.serialization.kotlinx.json)
+    ksp(libs.androidx.room.compiler)
+
     // Testing
     testImplementation(libs.junit)
 }

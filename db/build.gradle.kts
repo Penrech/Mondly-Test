@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.enrech.mondly.photos.data"
+    namespace = "com.enrech.mondly.db.data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -38,13 +38,26 @@ android {
 
 dependencies {
     //Modules
-    api(project(libs.module.photos.domain.get().name))
-    api(project(libs.module.db.data.get().name))
+    api(project(libs.module.core.data.get().name))
+    implementation(project(libs.module.photos.domain.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
+
+    //Data
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.io.ktor.client.core)
+    implementation(libs.io.ktor.client.cio)
+    implementation(libs.io.ktor.client.content.negotiation)
+    implementation(libs.io.ktor.serialization.kotlinx.json)
+    implementation(libs.io.ktor.client.logging.jvm)
+    ksp(libs.androidx.room.compiler)
 
     // Testing
     testImplementation(libs.junit)
