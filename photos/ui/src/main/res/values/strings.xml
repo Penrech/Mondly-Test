@@ -3,4 +3,14 @@
     <string name="image_cd">Image %s</string>
     <string name="no_images">There\'s no images to display</string>
     <string name="no_photos_cd">no photos</string>
+
+    <!-- Test tags -->
+    <string name="valid_list_tag">valid list tag</string>
+    <string name="error_screen_tag">error screen tag</string>
+    <string name="network_error_icon_tag">network error icon tag</string>
+    <string name="general_error_icon_tag">general error icon tag</string>
+    <string name="empty_screen_tag">empty screen tag</string>
+    <string name="loading_element_tag">loading element tag</string>
+    <string name="valid_element_tag">valid element tag</string>
+    <string name="error_snack_bar_tag">error snack bar tag</string>
 </resources>

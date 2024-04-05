@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.enrech.mondly.core.ui.extension.shimmerEffect
+import com.enrech.mondly.core.ui.extension.testTag
 import com.enrech.mondly.design_system.theme.MondlyTheme
 import com.enrech.mondly.photos.domain.entity.PhotoEntity
 import com.enrech.mondly.photos.ui.R
@@ -34,6 +35,7 @@ fun ItemCard(data: PhotoEntity) {
     Row(
         Modifier
             .fillMaxWidth()
+            .testTag(R.string.valid_element_tag)
             .height(150.dp)
             .background(MaterialTheme.colorScheme.surface)
     ) {
@@ -83,6 +85,7 @@ fun ItemCard(data: PhotoEntity) {
 fun ItemCardPlaceholder() {
     Box(modifier = Modifier
         .fillMaxWidth()
+        .testTag(R.string.loading_element_tag)
         .height(150.dp)
         .shimmerEffect()
     )

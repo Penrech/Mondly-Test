@@ -1,5 +1,6 @@
 package com.enrech.mondly.core.ui.extension
 
+import androidx.annotation.StringRes
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -15,6 +16,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
 
 fun Modifier.shimmerEffect(): Modifier = composed {
@@ -48,4 +51,8 @@ fun Modifier.shimmerEffect(): Modifier = composed {
     ).onGloballyPositioned {
         size = it.size
     }
+}
+
+fun Modifier.testTag(@StringRes id: Int) = composed {
+    this.testTag(stringResource(id = id))
 }

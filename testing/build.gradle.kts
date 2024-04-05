@@ -40,29 +40,16 @@ android {
 }
 
 dependencies {
-
     //Dependency Injection
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
-    // UI
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.io.github.raamcosta.compose.destinations)
-    implementation(libs.io.github.raamcosta.compose.destinations.animations)
-    ksp(libs.io.github.raamcosta.compose.destinations.ksp)
-    implementation(libs.io.coil.kt.coil)
-    implementation(libs.io.coil.kt.coil.compose)
+    implementation(libs.androidx.compose.ui.tooling)
 
-    // Testing
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.hilt.android.testing)
-
+    implementation(libs.hilt.android.testing)
+    implementation(libs.androidx.test.runner)
     kspAndroidTest(libs.hilt.compiler)
 }

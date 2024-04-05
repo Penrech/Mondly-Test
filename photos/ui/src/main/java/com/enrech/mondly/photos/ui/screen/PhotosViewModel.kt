@@ -28,7 +28,7 @@ class PhotosViewModel @Inject constructor(
                 setScreenState {
                     currentScreenState.copy(
                         isRefreshing = !isInitializing,
-                        isInitializing = currentScreenState.error != null,
+                        isInitializing = currentScreenState.isInitializing || currentScreenState.error != null,
                         error = null
                     )
                 }

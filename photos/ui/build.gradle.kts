@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.enrech.mondly.testing.MondlyAndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -81,6 +81,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(libs.androidx.compose.ui.test.junit)
+    debugImplementation(project(libs.module.testing.get().name))
 
     kspAndroidTest(libs.hilt.compiler)
 

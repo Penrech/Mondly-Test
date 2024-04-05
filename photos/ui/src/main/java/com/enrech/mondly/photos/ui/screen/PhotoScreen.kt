@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.enrech.mondly.core.domain.exception.NoInternetException
+import com.enrech.mondly.core.ui.extension.testTag
 import com.enrech.mondly.design_system.theme.MondlyTheme
 import com.enrech.mondly.photos.domain.entity.PhotoEntity
 import com.enrech.mondly.photos.ui.R
@@ -69,7 +70,7 @@ fun PhotoScreen(
     val tryAgain = stringResource(id = DesignR.string.try_again)
 
     HandleEffects(viewModel.effect) {
-        when(it) {
+        when (it) {
             is PhotoEffect.OnSecondaryError -> {
                 val message = if (it.isNetworkError) noNetworkError else generalError
                 launch {
@@ -129,7 +130,9 @@ private fun UIContent(
 @Composable
 private fun BoxScope.ValidContent(state: PhotosState) {
     LazyColumn(
-        modifier = Modifier.matchParentSize(),
+        modifier = Modifier
+            .matchParentSize()
+            .testTag(R.string.valid_list_tag),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         userScrollEnabled = !state.isInitializing,
         contentPadding = PaddingValues(bottom = 32.dp)
@@ -151,6 +154,7 @@ private fun BoxScope.EmptyScreen() {
     Column(
         Modifier
             .matchParentSize()
+            .testTag(R.string.empty_screen_tag)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp)
             .padding(top = 48.dp, bottom = 32.dp),
@@ -196,13 +200,16 @@ private fun BoxScope.ErrorScreen(throwable: Throwable) {
     Column(
         Modifier
             .matchParentSize()
+            .testTag(R.string.error_screen_tag)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp)
             .padding(top = 48.dp, bottom = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
-            modifier = Modifier.size(150.dp),
+            modifier = Modifier
+                .size(150.dp)
+                .testTag(if (throwable is NoInternetException) R.string.network_error_icon_tag else R.string.general_error_icon_tag),
             painter = painterResource(iconRes),
             contentDescription = stringResource(DesignR.string.error_cd),
             tint = MaterialTheme.colorScheme.onSurfaceVariant
