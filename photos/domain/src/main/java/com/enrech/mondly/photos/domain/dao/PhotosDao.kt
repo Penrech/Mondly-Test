@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import com.enrech.mondly.photos.domain.entity.PhotoEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -23,4 +24,10 @@ interface PhotosDao {
 
     @Query("select * from PhotoEntity order by id")
     fun getAllPhotosFlow(): Flow<List<PhotoEntity>>
+
+    @Transaction
+    suspend fun updatePhotos(photos: List<PhotoEntity>) {
+        clearAllPhotos()
+        insertPhotos(photos)
+    }
 }

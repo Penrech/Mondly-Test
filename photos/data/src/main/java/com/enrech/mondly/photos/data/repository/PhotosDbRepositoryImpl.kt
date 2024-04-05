@@ -13,17 +13,14 @@ class PhotosDbRepositoryImpl @Inject constructor(
     private val dao: PhotosDao
 ): PhotosDbRepository {
 
-    override suspend fun addPhotos(photos: List<PhotoEntity>) = withContext(Dispatchers.IO) {
-        dao.insertPhotos(photos)
+    override suspend fun updatePhotos(photos: List<PhotoEntity>) {
+        dao.updatePhotos(photos)
     }
 
     override suspend fun getPhoto(id: Long): PhotoEntity? = withContext(Dispatchers.IO) {
         dao.getPhoto(id)
     }
 
-    override suspend fun clearAllPhotos() = withContext(Dispatchers.IO) {
-        dao.clearAllPhotos()
-    }
 
     override suspend fun getAllPhotos(): List<PhotoEntity> = withContext(Dispatchers.IO) {
         dao.getAllPhotos()

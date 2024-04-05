@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -40,6 +41,7 @@ dependencies {
     //Modules
     api(project(libs.module.photos.domain.get().name))
     api(project(libs.module.db.data.get().name))
+    implementation(project(libs.module.core.data.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)
@@ -52,6 +54,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.datetime)
+    implementation(libs.io.ktor.client.core)
+    implementation(libs.io.ktor.client.cio)
     implementation(libs.io.ktor.serialization.kotlinx.json)
     ksp(libs.androidx.room.compiler)
 

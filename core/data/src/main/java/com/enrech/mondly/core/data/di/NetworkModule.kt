@@ -2,6 +2,7 @@ package com.enrech.mondly.core.data.di
 
 import android.content.Context
 import android.net.ConnectivityManager
+import com.enrech.mondly.core.data.entity.MondlyHttpClient
 import com.enrech.mondly.core.data.repository.InternetStateRepositoryImpl
 import com.enrech.mondly.core.data.util.InternetNetworkCallback
 import com.enrech.mondly.core.domain.repository.InternetStateRepository
@@ -22,6 +23,11 @@ abstract class NetworkModule {
     abstract fun bindInternetStateRepository(impl: InternetStateRepositoryImpl): InternetStateRepository
 
     companion object {
+
+        @Provides
+        @Singleton
+        fun provideHttpClient(): MondlyHttpClient = MondlyHttpClient()
+
         @Provides
         @Singleton
         fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager =
