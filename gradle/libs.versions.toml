@@ -147,6 +147,7 @@ module-sharedTypes = { group = "com.enrech.mondly", name = ":shared-types" }
 module-testing = { group = "com.enrech.mondly", name = ":testing" }
 module-viewmodel-util = { group = "com.enrech.mondly", name = ":viewmodel-util" }
 module-db-data = { group = "com.enrech.mondly", name = ":db:data" }
+module-db-domain = { group = "com.enrech.mondly", name = ":db:domain" }
 
 [plugins]
 

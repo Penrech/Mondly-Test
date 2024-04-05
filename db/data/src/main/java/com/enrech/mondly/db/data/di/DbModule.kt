@@ -1,10 +1,12 @@
-package com.enrech.mondly.db.di
+package com.enrech.mondly.db.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.enrech.mondly.db.Constant
-import com.enrech.mondly.db.MondlyDb
-import com.enrech.mondly.photos.domain.dao.PhotosDao
+import com.enrech.mondly.db.data.Constant
+import com.enrech.mondly.db.data.repository.DbRepositoryImpl
+import com.enrech.mondly.db.domain.MondlyDb
+import com.enrech.mondly.db.domain.repository.DbRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +18,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class DbModule {
 
+    @Binds
+    @Singleton
+    abstract fun bindsDbRepository(impl: DbRepositoryImpl): DbRepository
+
     companion object {
         @Provides
         @Singleton
@@ -25,9 +31,5 @@ abstract class DbModule {
                 MondlyDb::class.java,
                 Constant.dbName
             ).build()
-
-        @Provides
-        @Singleton
-        fun providePhotosDao(db: MondlyDb): PhotosDao = db.getPhotosDao()
     }
 }

@@ -1,4 +1,4 @@
-package com.enrech.mondly.db
+package com.enrech.mondly.db.domain
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

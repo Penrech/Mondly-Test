@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.enrech.mondly.db.data"
+    namespace = "com.enrech.mondly.db.domain"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -39,7 +39,7 @@ android {
 dependencies {
     //Modules
     api(project(libs.module.core.data.get().name))
-    implementation(project(libs.module.photos.domain.get().name))
+    api(project(libs.module.photos.domain.get().name))
 
     //Dependency Injection
     implementation(libs.hilt.android)
